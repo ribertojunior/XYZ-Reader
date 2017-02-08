@@ -2,28 +2,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <!--<android.support.design.widget.AppBarLayout
-        android:id="@+id/up_container"
-        android:layout_width="match_parent"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_height="wrap_content"
-        android:theme="@style/Toolbar"
-        >
+        android:layout_width="match_parent">
 
-        <android.support.v7.widget.Toolbar
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:id="@+id/action_up"
-            app:theme="@style/Toolbar"
-            app:layout_scrollFlags="scroll|enterAlways">
+            android:layout_height="match_parent" />
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/parallax_bar"
+            android:background="@android:color/transparent"
+            android:theme="@style/Toolbar.Bacon.Detail"
+            app:elevation="0dp"
+
+            >
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:id="@+id/toolbar"
+                android:layout_height="?attr/actionBarSize"
+                app:theme="@style/Toolbar.Bacon.Detail"
+                app:layout_scrollFlags="scroll|enterAlways">
 
 
-        </android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>-->
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
 </FrameLayout>

@@ -27,67 +27,71 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <android.support.design.widget.AppBarLayout
-                android:id="@+id/photo_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="@dimen/app_bar_elevation"
-                app:layout_scrollFlags="scroll|enterAlways">
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/photo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="@string/article_photo"
-                        tools:src="@drawable/place_holder" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/photo_background_protection" />
+        <android.support.design.widget.AppBarLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/photo_container">
                     <FrameLayout
-                        android:id="@+id/meta_bar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"
-                        android:layout_gravity="bottom"
-                        android:orientation="vertical"
                         >
 
-                        <LinearLayout
+                        <ImageView
+                            android:id="@+id/photo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:minHeight="200dp"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/article_photo"
+                            tools:src="@drawable/place_holder"
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/photo_background_protection" />
+
+                        <FrameLayout
+                            android:id="@+id/meta_bar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="@dimen/detail_inner_horiz_margin"
-                            android:paddingRight="@dimen/detail_inner_horiz_margin"
-                            android:paddingTop="@dimen/detail_metabar_vert_padding"
-                            android:paddingBottom="@dimen/detail_metabar_vert_padding"
-                            android:orientation="vertical"
-                            android:background="@android:color/transparent">
+                            android:background="@android:color/transparent"
+                            android:layout_gravity="bottom"
+                            android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/article_title"
-                                style="@style/TextAppearance.AppCompat.Display1"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
-                                android:fontFamily="sans-serif-condensed"
-                                android:lineSpacingMultiplier="0.9"
-                                android:textColor="@android:color/white"
-                                tools:text="An Empire State of Mind" />
+                                android:paddingLeft="@dimen/detail_inner_horiz_margin"
+                                android:paddingRight="@dimen/detail_inner_horiz_margin"
+                                android:paddingTop="@dimen/detail_metabar_vert_padding"
+                                android:paddingBottom="@dimen/detail_metabar_vert_padding"
+                                android:orientation="vertical"
+                                android:background="@android:color/transparent">
 
-                            <TextView
-                                android:id="@+id/article_byline"
-                                style="@style/TextAppearance.AppCompat.Subhead"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@android:color/white"
-                                tools:text="18 de jun de 2013 by Ernest Highway" />
-                        </LinearLayout>
+                                <TextView
+                                    android:id="@+id/article_title"
+                                    style="@style/TextAppearance.AppCompat.Display1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
+                                    android:fontFamily="sans-serif-condensed"
+                                    android:lineSpacingMultiplier="0.9"
+                                    android:textColor="@android:color/white"
+                                    tools:text="An Empire State of Mind" />
+
+                                <TextView
+                                    android:id="@+id/article_byline"
+                                    style="@style/TextAppearance.AppCompat.Subhead"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@android:color/white"
+                                    tools:text="18 de jun de 2013 by Ernest Highway" />
+                            </LinearLayout>
+                        </FrameLayout>
                     </FrameLayout>
-                </FrameLayout>
+
+
             </android.support.design.widget.AppBarLayout>
 
 
