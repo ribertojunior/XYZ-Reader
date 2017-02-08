@@ -18,11 +18,23 @@
 <resources>
 
     <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
-
+        <item name="colorPrimary">@color/theme_primary</item>
+        <item name="colorPrimaryDark">@color/theme_primary_dark</item>
+        <item name="colorAccent">@color/theme_accent</item>
+        <item name="toolbarStyle">@style/Toolbar</item>
     </style>
 
-    <style name="Theme.Bacon.Detail">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+    <style name="Theme.Bacon.Detail" parent="Theme.Bacon">
+        <item name="toolbarStyle">@style/Toolbar.Bacon.Detail</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
     </style>
 
+    <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/theme_primary_dark</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="Toolbar.Bacon.Detail" parent="Toolbar">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>
