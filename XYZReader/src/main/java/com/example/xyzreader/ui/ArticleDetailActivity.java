@@ -57,14 +57,17 @@ public class ArticleDetailActivity extends AppCompatActivity
         mPager.setPageMargin((int) TypedValue
                 .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, getResources().getDisplayMetrics()));
         mPager.setPageMarginDrawable(new ColorDrawable(0x22000000));
-        final View parallaxView = findViewById(R.id.parallax_bar);
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+
             @Override
             public void onPageScrollStateChanged(int state) {
                 super.onPageScrollStateChanged(state);
-                mUpButton.animate()
-                        .alpha((state == ViewPager.SCROLL_STATE_IDLE) ? 1f : 0f)
-                        .setDuration(300);
+                if (state == ViewPager.SCROLL_STATE_DRAGGING) {
+                    //parallaxView.setTranslationY(Math.max(-parallaxView.getHeight(), parallaxView.getTranslationY() + (dir)*10));
+                } else if (state == ViewPager.SCROLL_STATE_SETTLING) {
+
+                }
+
             }
 
             @Override
@@ -100,7 +103,7 @@ public class ArticleDetailActivity extends AppCompatActivity
             });
         }*/
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_detail);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

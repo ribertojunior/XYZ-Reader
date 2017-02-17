@@ -12,5 +12,7 @@
     <dimen name="fab_margin">24dp</dimen>
     <dimen name="app_bar_elevation">4dp</dimen>
     <dimen name="card_elevation">2dp</dimen>
+    <dimen name="image_min_height">250dp</dimen>
+    <dimen name="recycler_marginTop">18dp</dimen>
 
 </resources>

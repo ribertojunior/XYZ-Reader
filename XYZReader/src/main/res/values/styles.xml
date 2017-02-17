@@ -30,6 +30,7 @@
     </style>
 
     <style name="Toolbar"  parent="Widget.AppCompat.Toolbar">
+        <item name="colorPrimaryDark">@android:color/transparent</item>
 
     </style>
     <style name="Toolbar.Bacon.Detail" parent="Toolbar">

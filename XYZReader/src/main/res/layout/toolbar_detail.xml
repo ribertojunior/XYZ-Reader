@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_detail"
+    android:layout_height="wrap_content"
+    app:theme="@style/Toolbar.Bacon.Detail"
+    android:background="@android:color/transparent"
+    app:layout_scrollFlags="scroll|enterAlways"
+    android:layout_gravity="bottom"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fitsSystemWindows="true"/>

@@ -1,10 +1,137 @@
-<com.example.xyzreader.ui.DrawInsetsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/draw_insets_frame_layout"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
+    >
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/photo_container"
+        android:theme="@style/Toolbar.Bacon.Detail"
+        android:elevation="@dimen/app_bar_elevation"
+        >
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:theme="@style/Toolbar.Bacon.Detail"
+            app:titleEnabled="false"
+            app:contentScrim="@color/theme_primary_dark"
+            >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+
+                >
+
+                <ImageView
+                    android:id="@+id/photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:minHeight="@dimen/image_min_height"
+                    android:contentDescription="@string/article_photo"
+                    tools:src="@drawable/place_holder" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/photo_background_protection"
+                    />
+
+            </FrameLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/meta_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:theme="@style/Toolbar.Bacon.Detail"
+                android:layout_gravity="bottom"
+                app:layout_collapseMode="pin"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/detail_inner_horiz_margin"
+                    android:paddingRight="@dimen/detail_inner_horiz_margin"
+                    android:paddingTop="@dimen/detail_inner_horiz_margin"
+                    android:orientation="vertical"
+                    android:background="@android:color/transparent"
+                    >
+
+                    <TextView
+                        android:id="@+id/article_title"
+                        style="@style/TextAppearance.AppCompat.Display1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/detail_inner_horiz_margin"
+                        android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
+                        android:fontFamily="sans-serif-condensed"
+                        android:lineSpacingMultiplier="0.9"
+                        android:textColor="@android:color/white"
+                        tools:text="An Empire State of Mind"
+                        />
+
+                    <TextView
+                        android:id="@+id/article_byline"
+                        style="@style/TextAppearance.AppCompat.Subhead"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/white"
+                        tools:text="18 de jun de 2013 by Ernest Highway"
+                        />
+                </LinearLayout>
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <com.example.xyzreader.ui.MaxWidthLinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:layout_gravity="center_horizontal"
+                android:maxWidth="@dimen/detail_card_max_width"
+                android:paddingTop="@dimen/detail_metabar_vert_padding"
+                android:background="@android:color/white">
+
+                <TextView
+                    android:id="@+id/article_body"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                    android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                    android:paddingBottom="@dimen/detail_body_bottom_margin"
+                    android:textColorLink="@color/theme_accent"
+                    android:textSize="@dimen/detail_body_text_size"
+                    android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                    tools:text="On the layout level, design your app layout to minimize opportunities for interference. For example, position the FAB to one side of a stream of cards so the FAB won’t interfere when a user tries to pick up one of cards." />
+
+            </com.example.xyzreader.ui.MaxWidthLinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
     <ImageButton android:id="@+id/share_fab"
         android:stateListAnimator="@animator/fab_state_list_anim"
         android:background="@drawable/add_fab_background"
@@ -17,109 +144,7 @@
         android:src="@drawable/ic_share"
         android:elevation="@dimen/fab_elevation"
         android:contentDescription="@string/action_share" />
-
-    <com.example.xyzreader.ui.ObservableScrollView
-        android:id="@+id/scrollview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-        <android.support.design.widget.AppBarLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:id="@+id/photo_container">
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
-
-                        <ImageView
-                            android:id="@+id/photo"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:minHeight="200dp"
-                            android:scaleType="centerCrop"
-                            android:contentDescription="@string/article_photo"
-                            tools:src="@drawable/place_holder"
-                            />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/photo_background_protection" />
-
-                        <FrameLayout
-                            android:id="@+id/meta_bar"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:layout_gravity="bottom"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingLeft="@dimen/detail_inner_horiz_margin"
-                                android:paddingRight="@dimen/detail_inner_horiz_margin"
-                                android:paddingTop="@dimen/detail_metabar_vert_padding"
-                                android:paddingBottom="@dimen/detail_metabar_vert_padding"
-                                android:orientation="vertical"
-                                android:background="@android:color/transparent">
-
-                                <TextView
-                                    android:id="@+id/article_title"
-                                    style="@style/TextAppearance.AppCompat.Display1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:lineSpacingMultiplier="0.9"
-                                    android:textColor="@android:color/white"
-                                    tools:text="An Empire State of Mind" />
-
-                                <TextView
-                                    android:id="@+id/article_byline"
-                                    style="@style/TextAppearance.AppCompat.Subhead"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@android:color/white"
-                                    tools:text="18 de jun de 2013 by Ernest Highway" />
-                            </LinearLayout>
-                        </FrameLayout>
-                    </FrameLayout>
+</android.support.design.widget.CoordinatorLayout>
 
 
-            </android.support.design.widget.AppBarLayout>
 
-
-            <com.example.xyzreader.ui.MaxWidthLinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3"
-                android:layout_gravity="center_horizontal"
-                android:maxWidth="@dimen/detail_card_max_width"
-                android:paddingTop="@dimen/detail_metabar_vert_padding"
-                android:background="@android:color/white"
-                >
-                <TextView
-                    android:id="@+id/article_body"
-                    style="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
-                    android:layout_marginRight="@dimen/detail_inner_horiz_margin"
-                    android:paddingBottom="@dimen/detail_body_bottom_margin"
-                    android:textColorLink="@color/theme_accent"
-                    android:textSize="@dimen/detail_body_text_size"
-                    android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
-                    tools:text="On the layout level, design your app layout to minimize opportunities for interference. For example, position the FAB to one side of a stream of cards so the FAB won’t interfere when a user tries to pick up one of cards."/>
-
-            </com.example.xyzreader.ui.MaxWidthLinearLayout>
-        </LinearLayout>
-    </com.example.xyzreader.ui.ObservableScrollView>
-
-</com.example.xyzreader.ui.DrawInsetsFrameLayout>
