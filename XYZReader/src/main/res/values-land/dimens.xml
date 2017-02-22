@@ -2,5 +2,4 @@
 <resources>
     <dimen name="image_min_height">150dp</dimen>
     <dimen name="recycler_marginTop">24dp</dimen>
-    <dimen name="fab_margin">24dp</dimen>
 </resources>
